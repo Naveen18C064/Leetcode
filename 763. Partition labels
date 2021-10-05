@@ -1,0 +1,11 @@
+class Solution:
+    def partitionLabels(self, s: str) -> List[int]:
+        last = 0
+        res = []
+        prev = -1
+        for v,i in enumerate(s):
+            last = max(last,s.rfind(i))
+            if last == v: 
+                res.append(v-prev) 
+                prev = v
+        return res
